@@ -1,0 +1,84 @@
+{
+  "name": "electron-vue-oracledb",
+  "version": "1.0.0",
+  "description": "Electron with Vue and Oracle Database",
+  "main": "main.js",
+  "scripts": {
+    "start": "npm-run-all --parallel server dev",
+    "server": "cross-env NODE_ENV=development electron .",
+    "dev": "cross-env NODE_ENV=development webpack --watch",
+    "build": "cross-env NODE_ENV=production webpack && electron-builder",
+    "publish": "cross-env NODE_ENV=production webpack && electron-builder --win -p onTagOrDraft"
+  },
+  "build": {
+    "appId": "com.studioatual.koisafacil",
+    "productName": "Koisafácil",
+    "publish": [
+      {
+        "provider": "github",
+        "owner": "studioatual",
+        "repo": "koisafacil"
+      }
+    ],
+    "directories": {
+      "buildResources": ".",
+      "output": "build"
+    },
+    "win": {
+      "certificateFile": "private/studioatual.pfx",
+      "verifyUpdateCodeSignature": false,
+      "publisherName": "studioatual",
+      "icon": "icons/icon.ico"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/studioatual/electron-vue-oracledb.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/studioatual/electron-vue-oracledb/issues"
+  },
+  "homepage": "https://github.com/studioatual/electron-vue-oracledb#readme",
+  "devDependencies": {
+    "@babel/core": "^7.5.4",
+    "@babel/plugin-transform-runtime": "^7.5.0",
+    "@babel/preset-env": "^7.5.4",
+    "babel-eslint": "^10.0.1",
+    "babel-loader": "^8.0.6",
+    "cross-env": "^5.2.0",
+    "dotenv": "^8.2.0",
+    "electron": "^6.0.12",
+    "electron-builder": "^21.0.15",
+    "electron-reload": "^1.4.1",
+    "eslint": "^6.5.1",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-config-prettier": "^6.4.0",
+    "eslint-import-resolver-webpack": "^0.11.1",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-prettier": "^3.1.1",
+    "eslint-plugin-vue": "^5.2.3",
+    "file-loader": "^4.0.0",
+    "html-webpack-plugin": "^3.2.0",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^1.18.2",
+    "terser-webpack-plugin": "^1.3.0",
+    "vue-devtools": "^5.1.0",
+    "vue-loader": "^15.7.0",
+    "vue-template-compiler": "^2.6.10",
+    "webpack": "^4.30.0",
+    "webpack-cli": "^3.3.1"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.5.4",
+    "electron-updater": "^4.1.2",
+    "oracledb": "^4.0.1",
+    "sweetalert2": "^8.13.6",
+    "vue": "^2.6.10",
+    "vue-router": "^3.0.7",
+    "vuetify": "^2.1.5",
+    "vuex": "^3.1.1"
+  }
+}
