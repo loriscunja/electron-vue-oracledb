@@ -19,12 +19,12 @@ export default injectGlobal`
   }
 
   body {
-    padding-top: 50px;
     font-family: 'Open Sans', sans-serif;
     font-size: 14px;
     font-weight: 400;
     background: #f5f5f5;
     -webkit-font-smoothing: antialised;
+    overflow: hidden; 
   }
 
   a {

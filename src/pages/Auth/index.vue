@@ -1,21 +1,37 @@
 <template>
-  <div>
-    <h1>Auth</h1>
-  </div>
+  <container>
+    <panel>
+      <slideshow />
+      <sidebar>
+        <sidebar-header class="auth-container-main-header"></sidebar-header>
+        <div class="auth-container-main-content">
+          <transition
+            enter-active-class="animated slideInRight"
+            leave-active-class="animated zoomOut"
+          >
+            <router-view></router-view>
+          </transition>
+        </div>
+        <sidebar-footer class="auth-container-main-footer"></sidebar-footer>
+      </sidebar>
+    </panel>
+  </container>
 </template>
 <script>
-import { mapActions } from 'vuex';
+import { Container, Panel, Sidebar } from './styles';
+import Slideshow from './Slideshow';
+import SidebarHeader from './Header';
+import SidebarFooter from './Footer';
 
 export default {
   name: 'Auth',
-  methods: {
-    ...mapActions('Auth', ['login']),
-  },
-  mounted() {
-    this.login({
-      identifier: 'test@domain.com',
-      password: 'test',
-    });
+  components: {
+    Container,
+    Panel,
+    Sidebar,
+    Slideshow,
+    SidebarHeader,
+    SidebarFooter,
   },
 };
 </script>
