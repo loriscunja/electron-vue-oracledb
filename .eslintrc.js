@@ -15,6 +15,13 @@ module.exports = {
   plugins: ['vue', 'prettier'],
   rules: {
     'prettier/prettier': 'error',
+    'no-param-reassign': [
+      'error',
+      {
+        props: true,
+        ignorePropertyModificationsFor: ['state'],
+      },
+    ],
   },
   settings: {
     'import/resolver': 'webpack',

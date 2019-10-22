@@ -24,7 +24,7 @@ const createWindow = () => {
     title: 'Área Administrativa | Studio Atual',
     webPreferences: {
       webSecurity: false,
-      preload: path.resolve(__dirname, '..', 'preload.js'),
+      preload: path.resolve(__dirname, 'preload.js'),
     },
   });
   win.setMenu(null);

@@ -1,7 +1,9 @@
-const isDevelopment = process.env.NODE_ENV === 'development'
+/* eslint-disable */
+const isDevelopment = process.env.NODE_ENV === 'development';
 
 if (isDevelopment) {
-  require('./config/dev.js')
+  require('./config/dev.js');
 } else {
-  require('./config/prod.js')
+  require('./config/prod.js');
 }
+/* eslint-enable */

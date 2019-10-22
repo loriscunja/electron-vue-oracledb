@@ -1,14 +1,15 @@
-const path = require('path')
-const { app, BrowserWindow, ipcMain } = require('electron')
-const { autoUpdater } = require('electron-updater')
+/* eslint-disable */
+const path = require('path');
+const { app, BrowserWindow, ipcMain } = require('electron');
+const { autoUpdater } = require('electron-updater');
 
-autoUpdater.autoDownload = false
+autoUpdater.autoDownload = false;
 
-let win
+let win;
 
 ipcMain.on('set.data', (e, args) => {
-  win.webContents.send('get.data', args)
-})
+  win.webContents.send('get.data', args);
+});
 
 const createWindow = () => {
   win = new BrowserWindow({
@@ -17,75 +18,77 @@ const createWindow = () => {
     width: 1016,
     height: 639,
     autoHideMenuBar: true,
-    title: "Área Administrativa | Studio Atual v" + autoUpdater.currentVersion,
+    title: 'Área Administrativa | Studio Atual v' + autoUpdater.currentVersion,
     webPreferences: {
-      webSecurity: false,
-    }
-  })
-  win.setMenu(null)
+      webSecurity: true,
+      preload: path.resolve(__dirname, 'preload.js'),
+    },
+  });
+  win.setMenu(null);
 
-  win.loadFile(path.resolve(__dirname, '../dist/index.html'))
+  win.loadFile(path.resolve(__dirname, '../dist/index.html'));
 
   win.on('closed', () => {
-    win = null
-  })
-}
+    win = null;
+  });
+};
 
 app.on('ready', () => {
-  createWindow()
+  createWindow();
 
   // Check for new version
-  autoUpdater.checkForUpdatesAndNotify()
+  autoUpdater.checkForUpdatesAndNotify();
 
   // Not available an update
-  autoUpdater.on('update-not-available', updateNotAvailable)
+  autoUpdater.on('update-not-available', updateNotAvailable);
 
   // Available an update
-  autoUpdater.on('update-available', updateAvailable)
+  autoUpdater.on('update-available', updateAvailable);
 
   // Track download progress on autoUpdater
-  autoUpdater.on('download-progress', updateDownloadProgress)
+  autoUpdater.on('download-progress', updateDownloadProgress);
 
   // Listen for completed update download
-  autoUpdater.on('update-downloaded', updateDownloaded)
-})
+  autoUpdater.on('update-downloaded', updateDownloaded);
+});
 
 app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') {
-    app.quit()
+    app.quit();
   }
-})
+});
 
 app.on('activate', () => {
   if (win === null) {
-    createWindow()
+    createWindow();
   }
-})
+});
 
 const updateNotAvailable = () => {
   setTimeout(() => {
-    autoUpdater.checkForUpdatesAndNotify()
-  }, 60000)
-}
+    autoUpdater.checkForUpdatesAndNotify();
+  }, 60000);
+};
 
 const updateAvailable = () => {
-  win.webContents.send('update-new-version', true)
+  win.webContents.send('update-new-version', true);
   ipcMain.on('update-confirm', (e, confirm) => {
     if (confirm) {
-      autoUpdater.downloadUpdate()
+      autoUpdater.downloadUpdate();
     }
-  })
-}
+  });
+};
 
-const updateDownloadProgress = (progressObj) => {
-  win.webContents.send('download-progress', progressObj.percent)
-}
+const updateDownloadProgress = progressObj => {
+  win.webContents.send('download-progress', progressObj.percent);
+};
 
 const updateDownloaded = () => {
-  win.webContents.send('update-downloaded', true)
+  win.webContents.send('update-downloaded', true);
   ipcMain.on('update-install-confirm', (e, confirm) => {
     if (confirm) {
-      autoUpdater.quitAndInstall()
+      autoUpdater.quitAndInstall();
     }
-  })
-}
+  });
+};
+/* eslint-enable */
