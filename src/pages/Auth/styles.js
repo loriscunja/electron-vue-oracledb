@@ -1,18 +1,17 @@
 import styled from 'vue-styled-components';
 
 export const Container = styled.div`
-  display: grid;
+  display: flex;
   width: 100vw;
   height: 100vh;
   align-items: center;
-  justify-items: center;
+  justify-content: center;
 `;
 
 export const Panel = styled.div`
-  display: grid;
+  display: flex;
   width: 1000px;
   height: 600px;
-  grid-template-columns: 70% 30%;
   border-radius: 7px;
   background: #ffffff;
   box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
@@ -20,8 +19,16 @@ export const Panel = styled.div`
 `;
 
 export const Sidebar = styled.div`
-  display: grid;
-  grid-template-columns: 100%;
-  grid-template-rows: 25% 50% 25%;
-  background: #ffffff;
+  display: flex;
+  width: 300px;
+  height: 100%;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+`;
+
+export const SidebarMain = styled.div`
+  position: relative;
+  width: 300px;
+  height: 100%;
 `;

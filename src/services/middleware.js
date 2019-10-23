@@ -1,4 +1,4 @@
-import store from '@/store';
+import store from '~/store';
 
 export const ifNotAuthenticated = (to, from, next) => {
   if (!store.getters['Auth/isAuthenticated']) {

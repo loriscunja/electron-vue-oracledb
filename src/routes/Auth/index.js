@@ -1,8 +1,8 @@
-import Auth from '@/pages/Auth';
-import Login from '@/pages/Auth/Login';
-import ForgotPassword from '@/pages/Auth/ForgotPassword';
+import Auth from '~/pages/Auth';
+import Login from '~/pages/Auth/Login';
+import ForgotPassword from '~/pages/Auth/ForgotPassword';
 
-import { ifNotAuthenticated, checkToken } from '@/services/middleware';
+import { ifNotAuthenticated, checkToken } from '~/services/middleware';
 
 export default {
   path: '/auth',

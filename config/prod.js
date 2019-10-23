@@ -18,7 +18,7 @@ const createWindow = () => {
     width: 1016,
     height: 639,
     autoHideMenuBar: true,
-    title: 'Área Administrativa | Studio Atual v' + autoUpdater.currentVersion,
+    title: 'Área Administrativa | FBS Sistemas v' + autoUpdater.currentVersion,
     webPreferences: {
       webSecurity: true,
       preload: path.resolve(__dirname, 'preload.js'),

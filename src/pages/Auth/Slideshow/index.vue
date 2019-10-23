@@ -2,7 +2,7 @@
   <container>
     <list ref="list">
       <item v-for="(item, index) in banners" v-bind:key="index" :class="{'active': sel === index}">
-        <img :src="`assets/${item}`" />
+        <img :src="require(`~/assets/${item}`)" />
       </item>
     </list>
   </container>

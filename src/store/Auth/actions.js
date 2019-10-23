@@ -1,5 +1,4 @@
 import Swal from 'sweetalert2';
-import router from '@/routes';
 
 const login = async ({ commit }, form) => {
   let conn;
@@ -14,7 +13,7 @@ const login = async ({ commit }, form) => {
     );
     commit('SET_USER', response.rows[0]);
     commit('SET_LOAD', false);
-    router.push({ name: 'panel' });
+    /* router.push({ name: 'panel' }); */
   } catch (err) {
     Swal.fire('Erro', `Ocorreu um erro: ${err}`, 'error');
   } finally {
@@ -32,10 +31,10 @@ const autoLogin = async ({ commit }) => {
         WHERE USER_ID = ${userId}
     `);
     commit('SET_USER', response.rows[0]);
-    router.push({ name: 'panel' });
+    /* router.push({ name: 'panel' }); */
   } catch (err) {
     commit('SET_USER', null);
-    router.push({ name: 'auth' });
+    /* router.push({ name: 'auth' }); */
   } finally {
     window.db.close();
   }

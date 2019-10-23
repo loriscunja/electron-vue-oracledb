@@ -16,11 +16,11 @@ export const Item = styled.li`
   top: 0;
   left: 0;
   opacity: 0;
-  transition: opacity 0.3s ease-in-out;
+  transition: opacity 0.5s ease-in-out;
 
   &.active {
     opacity: 1;
-    transition: opacity 0.3s ease-in-out;
+    transition: opacity 0.5s ease-in-out;
   }
 
   img {

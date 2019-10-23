@@ -3,7 +3,7 @@ import Router from 'vue-router';
 
 import Auth from './Auth';
 import Panel from './Panel';
-import { logout } from '@/services/middleware';
+import { logout } from '~/services/middleware';
 
 Vue.use(Router);
 

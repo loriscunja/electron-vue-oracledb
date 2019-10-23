@@ -1,5 +1,5 @@
-import Panel from '@/pages/Panel';
-import { ifAuthenticated } from '@/services/middleware';
+import Panel from '~/pages/Panel';
+import { ifAuthenticated } from '~/services/middleware';
 
 export default {
   path: '/panel',

@@ -1,27 +1,47 @@
 <template>
   <container>
     <support>
-      <h1 class="support-title">
-        <i class="fa fa-cogs icon"></i>Suporte
-      </h1>
-      <p class="support-text">
+      <title-text>
+        <font-awesome-icon :icon="['fas', 'cogs']" />Suporte
+      </title-text>
+      <description-text>
         suporte@fbssistemas.com.br
-        <span @click="openWhatsapp" class="whatsapp">
-          <i class="fab fa-whatsapp"></i> 17 99719.2355
-        </span>
-      </p>
-      <div @click="openSite" class="support-link">portal.fbssistemas.com.br</div>
+        <phone-text @click="openWhatsapp">
+          <font-awesome-icon :icon="['fab', 'whatsapp']" />17 99719.2355
+        </phone-text>
+      </description-text>
+      <site-text @click="openSite">portal.fbssistemas.com.br</site-text>
     </support>
   </container>
 </template>
 <script>
-import { Container, Support } from './styles';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faCogs } from '@fortawesome/free-solid-svg-icons';
+import { faWhatsapp } from '@fortawesome/free-brands-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+
+import {
+  Container,
+  Support,
+  TitleText,
+  DescriptionText,
+  PhoneText,
+  SiteText,
+} from './styles';
+
+library.add(faCogs);
+library.add(faWhatsapp);
 
 export default {
   name: 'Footer',
   components: {
     Container,
     Support,
+    TitleText,
+    DescriptionText,
+    PhoneText,
+    SiteText,
+    FontAwesomeIcon,
   },
   methods: {
     openWhatsapp() {
@@ -33,7 +53,7 @@ export default {
       );
     },
     openSite() {
-      shell.openExternal('http://scrum.fbssistemas.com.br/apex');
+      shell.openExternal('http://portal.fbssistemas.com.br/apex');
     },
   },
 };

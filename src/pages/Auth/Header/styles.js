@@ -1,7 +1,7 @@
 import styled from 'vue-styled-components';
 
 export const Container = styled.div`
-  padding-top: 30px;
+  margin: 20px;
   text-align: center;
 `;
 

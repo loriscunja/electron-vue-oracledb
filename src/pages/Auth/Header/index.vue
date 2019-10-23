@@ -1,7 +1,7 @@
 <template>
   <container>
     <logotipo @click="openSite">
-      <img src="@/assets/fbs.png" />
+      <img :src="require('~/assets/fbs.png')" />
     </logotipo>
     <titulo class="title">Acesso Administrativo</titulo>
     <subtitle class="subtitle">Somente Pessoas Autorizadas</subtitle>

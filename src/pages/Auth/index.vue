@@ -4,21 +4,21 @@
       <slideshow />
       <sidebar>
         <sidebar-header class="auth-container-main-header"></sidebar-header>
-        <div class="auth-container-main-content">
+        <sidebar-main>
           <transition
             enter-active-class="animated slideInRight"
             leave-active-class="animated zoomOut"
           >
             <router-view></router-view>
           </transition>
-        </div>
+        </sidebar-main>
         <sidebar-footer class="auth-container-main-footer"></sidebar-footer>
       </sidebar>
     </panel>
   </container>
 </template>
 <script>
-import { Container, Panel, Sidebar } from './styles';
+import { Container, Panel, Sidebar, SidebarMain } from './styles';
 import Slideshow from './Slideshow';
 import SidebarHeader from './Header';
 import SidebarFooter from './Footer';
@@ -29,6 +29,7 @@ export default {
     Container,
     Panel,
     Sidebar,
+    SidebarMain,
     Slideshow,
     SidebarHeader,
     SidebarFooter,
