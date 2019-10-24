@@ -27,7 +27,6 @@ import {
   FormGroup,
   InputControl,
   BtnEnviar,
-  BtnVoltar,
 } from './styles';
 
 export default {
@@ -38,7 +37,6 @@ export default {
     FormGroup,
     InputControl,
     BtnEnviar,
-    BtnVoltar,
   },
   data() {
     return {

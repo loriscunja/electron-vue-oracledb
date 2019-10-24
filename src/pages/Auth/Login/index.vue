@@ -1,17 +1,15 @@
 <template>
   <container @submit.prevent="send" method="post" autocomplete="off">
-    <form-group v-bind:class="{ 'form-error': errors.identifier }">
+    <form-group>
       <input-control
         type="text"
         v-model="form.identifier"
         placeholder="E-mail ou Usuário"
         required
       />
-      <span>{{ errors.identifier | first }}</span>
     </form-group>
-    <form-group :class="{ 'form-error': errors.password }">
+    <form-group>
       <input-control type="password" v-model="form.password" placeholder="Senha" required />
-      <span>{{ errors.password | first }}</span>
     </form-group>
     <form-group>
       <router-link :to="{ name: 'auth.forgot-password' }" class="form-link">Esqueceu a senha?</router-link>
@@ -44,7 +42,7 @@ export default {
     },
   },
   computed: {
-    ...mapState('Auth', ['form', 'errors']),
+    ...mapState('Auth', ['form']),
   },
 };
 </script>

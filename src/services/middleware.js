@@ -18,7 +18,7 @@ export const ifAuthenticated = (to, from, next) => {
 
 export const checkToken = (to, from, next) => {
   if (localStorage.getItem('user_id')) {
-    store.dispatch('Auth/autoLogin');
+    store.dispatch('Auth/autoLogin', next);
     return;
   }
   next();

@@ -25,7 +25,6 @@
       "output": "build"
     },
     "win": {
-      "certificateFile": "private/studioatual.pfx",
       "verifyUpdateCodeSignature": false,
       "publisherName": "studioatual",
       "icon": "icons/icon.ico"
@@ -77,6 +76,7 @@
     "@fortawesome/free-brands-svg-icons": "^5.11.2",
     "@fortawesome/free-solid-svg-icons": "^5.11.2",
     "@fortawesome/vue-fontawesome": "^0.1.7",
+    "bcryptjs": "^2.4.3",
     "electron-updater": "^4.1.2",
     "oracledb": "^4.0.1",
     "sweetalert2": "^8.13.6",

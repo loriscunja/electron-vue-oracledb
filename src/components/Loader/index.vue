@@ -20,7 +20,7 @@ export default {
     Box,
   },
   computed: {
-    ...mapState(['load']),
+    ...mapState('Loader', ['load']),
   },
 };
 </script>
